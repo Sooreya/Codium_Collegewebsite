@@ -1,0 +1,89 @@
+:root {
+            /* Light Theme: White, Yellow, Deep Blue */
+            --bg-base: #f4f6f8; /* Soft off-white */
+            --bg-surface: #ffffff;
+            --bg-surface-hover: #fef9c3; /* Subtle yellow tint on hover */
+            --text-main: #0a192f; /* Deep Blue */
+            --text-muted: #475569;
+            --border-light: #e2e8f0;
+            --accent: #0a192f; /* Deep Blue Main Accent */
+            --accent-text: #ffffff; /* White text on blue accent */
+            --highlight: #eab308; /* Bright Yellow */
+            --pill-bg: #ffffff;
+            --header-bg: #0a192f; /* Deep Blue Header */
+        }
+
+        html.dark {
+            /* Dark Theme: Black, Yellow, Deep Blue */
+            --bg-base: #000000; /* Pure Black */
+            --bg-surface: #111111; /* Very dark grey for depth */
+            --bg-surface-hover: #1f1f1f;
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --border-light: #333333;
+            --accent: #eab308; /* Yellow Main Accent */
+            --accent-text: #000000; /* Black text on yellow accent */
+            --highlight: #0a192f; /* Deep Blue */
+            --pill-bg: #111111;
+            --header-bg: #000000; /* Pure Black Header */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Themed Utilities */
+        .themed-surface {
+            background-color: var(--bg-surface);
+            border-color: var(--border-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .themed-surface:hover {
+            background-color: var(--bg-surface-hover);
+        }
+
+        .themed-pill {
+            background-color: var(--pill-bg);
+            color: var(--text-muted);
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+
+        .themed-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Animation Classes (Depth + Transition) */
+        .card-reveal {
+            opacity: 0;
+            transform: translateY(60px) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Springy effect */
+            will-change: transform, opacity;
+        }
+
+        .card-reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Staggered delay for cards */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* Hide scrollbar for branches if they overflow on tiny screens */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
